@@ -1,0 +1,18 @@
+<div class="card my-2" style="width: 18rem;">
+    <img [src]="product.image" class="card-img-top" [alt]="product.title" height="250px">
+    <div class="card-body">
+        <h5 class="card-title">{{product.title | firstWords : 2}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{product.price | currency}}</li>
+        <li class="list-group-item">
+            @for (star of [1, 2, 3, 4, 5].slice(0, product.rating.rate); track $index) {
+            <i class="fa-solid fa-star text-warning"></i>
+            }
+            @if (product.rating.rate%1 !== 0) {
+            <i class="fa-solid fa-star-half-alt text-warning"></i>
+            }
+            <span class="fw-medium">{{product.rating.rate}} ({{product.rating.count}})</span>
+        </li>
+    </ul>
+</div>

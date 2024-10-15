@@ -1,0 +1,12 @@
+<section class="" style="background-color: blanchedalmond;">
+    @if (isLoading) {
+        <app-spinner></app-spinner>
+    }
+    @else {
+        <div class="container d-flex justify-content-between flex-wrap">
+            @for (product of productList; track product.id) {
+                <app-product-card [product]="product"></app-product-card>
+            }
+        </div>
+    }
+</section>
